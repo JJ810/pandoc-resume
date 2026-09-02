@@ -20,29 +20,38 @@ The layout follows a clean, single-page style: centered header with name, title,
 winget install --id JohnMacFarlane.Pandoc -e
 ```
 
-Close and reopen PowerShell, then verify:
-
-```powershell
-pandoc --version
-```
-
-**Build** — use either option:
-
-```powershell
-# Option A: PowerShell script (recommended on Windows)
-.\compile.ps1
-
-# Option B: double-click compile.bat
-
-# Option C: run pandoc directly
-pandoc resume.md -s --template=template.html -c style.css -o index.html
-pandoc resume.md --template=template.tex --pdf-engine=xelatex -o resume.pdf
-```
-
 For PDF output, also install [MiKTeX](https://miktex.org/):
 
 ```powershell
 winget install --id MiKTeX.MiKTeX -e
+```
+
+#### System command: `build-resume` (recommended)
+
+Install once from this project:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-build-resume.ps1
+```
+
+Then, from **any folder** that contains `resume.md`:
+
+```powershell
+cd C:\path\to\folder
+build-resume
+```
+
+That writes `resume.pdf` in the current folder (PDF only).
+
+See [system-command.md](system-command.md) for full setup and troubleshooting.
+
+Open a **new** terminal after install if the command is not found.
+
+#### Project-local build
+
+```powershell
+.\compile.ps1
+# or: make compile
 ```
 
 If `make compile` fails with *"The system cannot find the file specified"*, Pandoc is not installed or not on your PATH — install it and restart the terminal.

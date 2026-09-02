@@ -21,7 +21,7 @@ header-includes:
 ## Professional Summary
 
 ```{=latex}
-\fontsize{10}{11.1}\selectfont\color{ResumeBody}\setlength{\parskip}{3pt}
+\fontsize{9.5}{11.4}\selectfont\color{ResumeBody}\setlength{\parskip}{3pt}
 ```
 
 Senior AI Engineer with 10 years of experience building and operating production machine learning, NLP, and generative AI systems at Microsoft and JPMorgan Chase. Proven record delivering enterprise RAG applications, real-time risk models, scalable inference services, and MLOps platforms that improve model quality, operating cost, and release speed. Hands-on technical leader experienced in architecture, mentoring, responsible AI, security, model governance, and cross-functional delivery.
@@ -47,8 +47,8 @@ Senior AI Engineer with 10 years of experience building and operating production
 ## Professional Experience
 
 ```{=latex}
-\fontsize{10}{10.8}\selectfont\color{ResumeCompanyMeta}\setlength{\parskip}{1pt}
-\renewcommand{\textbf}[1]{\textcolor{ResumeBody}{\bfseries #1}}
+\fontsize{9.5}{10.4}\selectfont\color{ResumeCompanyMeta}\setlength{\parskip}{1pt}
+\renewcommand{\textbf}[1]{{\fontsize{9.5}{10.4}\selectfont\textcolor{ResumeBody}{\bfseries #1}}}
 ```
 
 **MICROSOFT** | Redmond, WA / Remote | September 2021 - Present

@@ -1,4 +1,4 @@
-# Build resume HTML and PDF on Windows (no make required)
+# Build resume HTML and PDF on Windows (always overwrites resume.pdf)
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
 
@@ -42,9 +42,23 @@ pandoc resume.md -s --template=template.html -c style.css -o index.html
 
 if (Get-Command xelatex -ErrorAction SilentlyContinue) {
     Write-Host "Building resume.pdf..."
-    pandoc resume.md --template=template.tex --pdf-engine=xelatex -o resume.pdf
+    $tmp = Join-Path $PSScriptRoot "resume.tmp.pdf"
+    Remove-Item -Force $tmp -ErrorAction SilentlyContinue
+    pandoc resume.md --template=template.tex --pdf-engine=xelatex -o $tmp
+    if (-not (Test-Path $tmp)) {
+        Write-Error "PDF build failed — resume.tmp.pdf was not created."
+    }
+    try {
+        Move-Item -Force $tmp (Join-Path $PSScriptRoot "resume.pdf")
+    } catch {
+        Write-Error @"
+Could not overwrite resume.pdf (file is locked).
+Close any PDF viewer that has resume.pdf open, then run again.
+"@
+    }
 } else {
-    Write-Warning "xelatex not found — skipped resume.pdf. Install MiKTeX: winget install --id MiKTeX.MiKTeX -e"
+    Write-Warning "xelatex not found - skipped resume.pdf. Install MiKTeX: winget install --id MiKTeX.MiKTeX -e"
 }
 
 Write-Host "Done."
+Get-Item index.html, resume.pdf | Format-Table Name, Length, LastWriteTime

@@ -54,7 +54,7 @@ h1.title {
     text-align: center;
     text-transform: uppercase;
     line-height: 1.0;
-    margin: 0;
+    margin: 0 0 5pt;
     padding: 0;
 }
 
@@ -71,7 +71,6 @@ p.subtitle {
     text-align: center;
     text-transform: uppercase;
     line-height: 1.05;
-    margin: 0 0 2pt;
     padding: 0;
 }
 
@@ -82,7 +81,7 @@ p.contact {
     color: var(--contact);
     text-align: center;
     line-height: 1.08;
-    margin: 0 0 5pt;
+    margin: -5pt 0 0 5pt;
     padding: 0;
     border: none;
 }
@@ -99,7 +98,7 @@ p.contact a:hover {
 /* --- Section headings with underline --- */
 h2 {
     font-family: Arial, sans-serif;
-    font-size: 10.5pt;
+    font-size: 12pt;
     font-weight: bold;
     color: var(--section);
     text-transform: uppercase;
@@ -120,9 +119,9 @@ h2::after {
 h2#professional-summary + p,
 .summary {
     font-family: Arial, sans-serif;
-    font-size: 10pt;
+    font-size: 9.5pt;
     color: var(--body);
-    line-height: 1.11;
+    line-height: 1.2;
     margin: 1pt 0 3pt;
     padding: 0;
 }
@@ -132,7 +131,7 @@ h2#technical-skills ~ p {
     font-family: Arial, sans-serif;
     font-size: 9.5pt;
     color: var(--body);
-    line-height: 1.09;
+    line-height: 1.4;
     margin: 0 0 1.25pt;
     padding: 0;
 }
@@ -140,14 +139,15 @@ h2#technical-skills ~ p {
 /* --- Professional experience: company lines (no italic dates) --- */
 h2#professional-experience ~ p:not(:has(em)) {
     font-family: Arial, sans-serif;
-    font-size: 10pt;
-    line-height: 1.08;
+    font-size: 9.5pt;
+    line-height: 1.09;
     color: var(--company-meta);
     margin: 3pt 0 1pt;
     padding: 0;
 }
 
 h2#professional-experience ~ p:not(:has(em)) > strong:first-child {
+    font-size: 9.5pt;
     font-weight: bold;
     color: var(--body);
 }
@@ -155,8 +155,8 @@ h2#professional-experience ~ p:not(:has(em)) > strong:first-child {
 /* Role lines (with italic dates) */
 h2#professional-experience ~ p:has(em) {
     font-family: Arial, sans-serif;
-    font-size: 10pt;
-    line-height: 1.08;
+    font-size: 9.5pt;
+    line-height: 1.09;
     color: var(--body);
     margin: 1pt 0 2pt;
     padding: 0;
@@ -176,7 +176,7 @@ h2#professional-experience ~ ul {
 
 h2#professional-experience ~ ul li {
     font-family: Arial, sans-serif;
-    font-size: 10pt;
+    font-size: 9.5pt;
     color: var(--body);
     line-height: 1.11;
     margin: 0 0 2.25pt;
@@ -189,7 +189,7 @@ h2#professional-experience ~ ul li::marker {
 
 h2#professional-experience ~ ul li p {
     margin: 0;
-    font-size: 10pt;
+    font-size: 9.5pt;
     line-height: 1.11;
     color: var(--body);
 }

@@ -38,14 +38,15 @@ $endif$
 \renewcommand{\maketitle}{%
   \begin{center}
     {\fontsize{20.5}{20.5}\bfseries\color{ResumeName}\MakeUppercase{$title$}\par}
+    \vspace{3pt}% name → subtitle: slightly more breathing room
     {\fontsize{11.5}{12.075}\bfseries\color{ResumeTitle}\MakeUppercase{\resumesubtitle}\par}
-    \vspace{2pt}
+    \vspace{0pt}% subtitle → contact: keep tight (contact follows immediately)
   \end{center}
 }
 
-% Section headings: 10.5pt, underline #454545, 6pt before section
+% Section headings: 12pt (larger than company name), underline #454545
 \titleformat{\section}
-  {\fontsize{10.5}{11.025}\bfseries\color{ResumeSection}}
+  {\fontsize{12}{12.6}\bfseries\color{ResumeSection}}
   {}
   {0em}
   {\MakeUppercase}
@@ -54,7 +55,7 @@ $endif$
 \titlespacing*{\section}{0pt}{6pt}{0pt}
 
 \titleformat{\subsection}
-  {\fontsize{10.5}{11.025}\bfseries\color{ResumeSection}}
+  {\fontsize{12}{12.6}\bfseries\color{ResumeSection}}
   {}
   {0em}
   {\MakeUppercase}
@@ -74,7 +75,7 @@ $endif$
   labelwidth=0.11in,
   itemindent=0pt,
   label=\textbullet,
-  before={\fontsize{10}{11.1}\selectfont\color{ResumeBody}},
+  before={\fontsize{9.5}{10.545}\selectfont\color{ResumeBody}},
   after=\vspace{3pt}
 }
 

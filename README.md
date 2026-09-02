@@ -1,35 +1,87 @@
-# Revival of an Old Markdown to Résumé/CV Make Script
+# Pandoc Resume
 
-*Create your résumé/CV easily using a single markdown file (`index.md`).*
+Create a professional ATS-friendly résumé from a single Markdown file (`resume.md`).
 
-**HTML Output Example**
-
-![Image of HTML Output](img/README_examples/html.png)
-
-**PDF Output Example**
-
-![Image of PDF Output](img/README_examples/pdf.png)
-
-A Makefile is provided so that you can compile it into both a LaTeX PDF and an HTML file using `pandoc`.
-
-## Features
-
-### HTML Output
-- Responsive web design, custom background, and div settings with `style.css`.
-- Automatically generated "table of contents" transformed into a menu bar with dropdown subsections.
-- Longer content sections are hidden and revealed on mouseover (or with a single-tap on mobile).
-
-### PDF Output
-- Custom LaTeX template (`template.tex`) used for PDF generation.
+The layout follows a clean, single-page style: centered header with name, title, and contact line; uppercase section headings with underline rules; compact Arial typography; and pipe-separated experience entries.
 
 ## Usage
-1. Edit the `index.md` with your editor of choice.
-2. Run `make` (or `make compile`) to generate a PDF and HTML file.
+
+1. Edit `resume.md` with your information.
+2. Build the resume (see [Windows](#windows) below).
+3. Outputs:
+   - `index.html` — web preview
+   - `resume.pdf` — print-ready PDF
+
+### Windows
+
+**Install Pandoc first** (required):
+
+```powershell
+winget install --id JohnMacFarlane.Pandoc -e
+```
+
+Close and reopen PowerShell, then verify:
+
+```powershell
+pandoc --version
+```
+
+**Build** — use either option:
+
+```powershell
+# Option A: PowerShell script (recommended on Windows)
+.\compile.ps1
+
+# Option B: double-click compile.bat
+
+# Option C: run pandoc directly
+pandoc resume.md -s --template=template.html -c style.css -o index.html
+pandoc resume.md --template=template.tex --pdf-engine=xelatex -o resume.pdf
+```
+
+For PDF output, also install [MiKTeX](https://miktex.org/):
+
+```powershell
+winget install --id MiKTeX.MiKTeX -e
+```
+
+If `make compile` fails with *"The system cannot find the file specified"*, Pandoc is not installed or not on your PATH — install it and restart the terminal.
+
+### Linux / macOS
+
+```bash
+make compile
+```
+
+## Structure
+
+```markdown
+---
+title: Your Name
+subtitle: Your Title
+contact: City, ST | phone | email | website
+---
+
+## Professional Summary
+...
+
+## Technical Skills
+**Category:** skill, list
+
+## Professional Experience
+**COMPANY** | Location | Date Range
+**Role** | *Date Range*
+- Bullet points
+
+## Education
+```
 
 ## Dependencies
-- `pandoc`
-- `LaTeX`
-- `make` (optional, commands in the `Makefile` can be run indivdually)
+
+- [pandoc](https://pandoc.org/)
+- [XeLaTeX](https://www.tug.org/texlive/) (for PDF output; Arial font)
+- `make` (optional)
 
 ## Links
+
 - [Original Public Archive](https://github.com/LukeSmithxyz/md-website-cv)

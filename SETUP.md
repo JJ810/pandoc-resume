@@ -96,7 +96,7 @@ For full command details and troubleshooting, see [system-command.md](system-com
 
 1. Open ChatGPT.
 2. Create a new **Project**.
-3. In the project **Sources** tab, upload the sample `README.md` from this repository (or your preferred style/content reference file).
+3. In the project **Sources** tab, upload the sample `readme.md` from this repository (or your preferred style/content reference file).
 
 
 
@@ -197,7 +197,7 @@ These options are defined in the `build-resume` command installed from this proj
 2. Install Pandoc and MiKTeX (`choco install pandoc miktex -y`).
 3. Run `scripts\install-build-resume.ps1` from the pandoc-resume project.
 4. Open a new terminal and confirm `build-resume` is available.
-5. Create a ChatGPT project, upload sample `README.md` to Sources, set **Project-only memory**, and paste project instructions.
+5. Create a ChatGPT project, upload sample `resume.md` to Sources, set **Project-only memory**, and paste project instructions.
 6. Paste a job description into the ChatGPT project.
 7. Save the returned `job.txt`, `resume.md`, and folder name.
 8. Create the local folder and copy the files into it.

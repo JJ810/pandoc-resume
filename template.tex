@@ -2,11 +2,13 @@
 \PassOptionsToPackage{hyphens}{url}
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage[top=0.43in,bottom=0.43in,left=0.58in,right=0.58in]{geometry}
+\usepackage[top=0.58in,bottom=0.58in,left=0.62in,right=0.62in]{geometry}
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage[none]{hyphenat}
+\usepackage{needspace}
 \usepackage[hidelinks]{hyperref}
 
 \defaultfontfeatures{Ligatures=TeX}
@@ -15,10 +17,10 @@
 \definecolor{ResumeBody}{HTML}{181818}
 \definecolor{ResumeName}{HTML}{191919}
 \definecolor{ResumeSection}{HTML}{282828}
-\definecolor{ResumeSectionRule}{HTML}{454545}
-\definecolor{ResumeContact}{HTML}{373737}
+\definecolor{ResumeSectionRule}{HTML}{888888}
+\definecolor{ResumeContact}{HTML}{555555}
 \definecolor{ResumeTitle}{HTML}{3E3E3E}
-\definecolor{ResumeDates}{HTML}{464646}
+\definecolor{ResumeDates}{HTML}{555555}
 \definecolor{ResumeEduSecondary}{HTML}{4B4B4B}
 \definecolor{ResumeCompanyMeta}{HTML}{505050}
 
@@ -26,6 +28,14 @@
 \setlength{\parskip}{0pt}
 \setcounter{secnumdepth}{-1}
 \pagestyle{empty}
+\raggedbottom
+
+% Strongly discourage hyphenation for ATS-safe text extraction
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\emergencystretch}{2em}
+\tolerance=2000
+\hbadness=10000
 
 $if(subtitle)$
 \newcommand{\resumesubtitle}{$subtitle$}
@@ -34,55 +44,56 @@ $else$
 $endif$
 
 \color{ResumeBody}
+\fontsize{10}{10.5}\selectfont
 
 \renewcommand{\maketitle}{%
   \begin{center}
-    {\fontsize{20.5}{20.5}\bfseries\color{ResumeName}\MakeUppercase{$title$}\par}
-    \vspace{3pt}% name → subtitle: slightly more breathing room
-    {\fontsize{11.5}{12.075}\bfseries\color{ResumeTitle}\MakeUppercase{\resumesubtitle}\par}
-    \vspace{0pt}% subtitle → contact: keep tight (contact follows immediately)
+    {\fontsize{24}{24}\bfseries\color{ResumeName}\MakeUppercase{$title$}\par}
+    \vspace{4pt}
+    {\fontsize{12}{12.6}\bfseries\color{ResumeTitle}\resumesubtitle\par}
+    \vspace{1pt}
   \end{center}
 }
 
-% Section headings: 12pt (larger than company name), underline #454545
+% Section headings ~12pt, lighter rule, more breathing room
 \titleformat{\section}
   {\fontsize{12}{12.6}\bfseries\color{ResumeSection}}
   {}
   {0em}
   {\MakeUppercase}
-  [\vspace{1pt}{\color{ResumeSectionRule}\titlerule[0.65pt]}\vspace{2.5pt}]
+  [\vspace{1.5pt}{\color{ResumeSectionRule}\titlerule[0.4pt]}\vspace{4pt}]
 
-\titlespacing*{\section}{0pt}{6pt}{0pt}
+\titlespacing*{\section}{0pt}{9pt}{0pt}
 
 \titleformat{\subsection}
   {\fontsize{12}{12.6}\bfseries\color{ResumeSection}}
   {}
   {0em}
   {\MakeUppercase}
-  [\vspace{1pt}{\color{ResumeSectionRule}\titlerule[0.65pt]}\vspace{2.5pt}]
+  [\vspace{1.5pt}{\color{ResumeSectionRule}\titlerule[0.4pt]}\vspace{4pt}]
 
-\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+\titlespacing*{\subsection}{0pt}{9pt}{0pt}
 
-\renewcommand{\emph}[1]{{\fontsize{9.5}{10.26}\selectfont\color{ResumeDates}\itshape #1}}
+% Dates: muted italic
+\renewcommand{\emph}[1]{{\fontsize{10}{10.5}\selectfont\color{ResumeDates}\itshape #1}}
 
+% Compact bullets: ~1.25em left margin, 1.5–2.5pt between items
 \setlist[itemize]{
   topsep=2pt,
   partopsep=0pt,
-  itemsep=2.25pt,
+  itemsep=2pt,
   parsep=0pt,
-  leftmargin=0.31in,
-  labelsep=0.08in,
-  labelwidth=0.11in,
+  leftmargin=1.25em,
+  labelsep=0.4em,
+  labelwidth=0.6em,
   itemindent=0pt,
   label=\textbullet,
-  before={\fontsize{9.5}{10.545}\selectfont\color{ResumeBody}},
-  after=\vspace{3pt}
+  before={\fontsize{10}{10.5}\selectfont\color{ResumeBody}},
+  after=\vspace{4pt}
 }
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{2.25pt}\setlength{\parskip}{0pt}}
-
-\setlength{\emergencystretch}{3em}
+  \setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}}
 
 $for(header-includes)$
 $header-includes$

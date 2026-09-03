@@ -6,7 +6,7 @@
 param(
     [Alias("Input")]
     [string]$Markdown = "resume.md",
-    [string]$OutPdf = "resume.pdf"
+    [string]$OutPdf = "Jesse_Pinzon_Resume.pdf"
 )
 
 $ErrorActionPreference = "Stop"

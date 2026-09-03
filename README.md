@@ -2,28 +2,27 @@
 
 Create a professional ATS-friendly résumé from a single Markdown file (`resume.md`).
 
-The layout follows a clean, single-page style: centered header with name, title, and contact line; uppercase section headings with underline rules; compact Arial typography; and pipe-separated experience entries.
+## Quick start (end-to-end)
+
+For full local setup, ChatGPT project configuration, and PDF generation workflow, see:
+
+- **[SETUP.md](SETUP.md)** — complete setup and workflow guide
+- **[system-command.md](system-command.md)** — `build-resume` command reference
 
 ## Usage
 
 1. Edit `resume.md` with your information.
 2. Build the resume (see [Windows](#windows) below).
-3. Outputs:
-   - `index.html` — web preview
+3. Output:
    - `resume.pdf` — print-ready PDF
 
 ### Windows
 
-**Install Pandoc first** (required):
+**Install dependencies** (Chocolatey recommended):
 
 ```powershell
-winget install --id JohnMacFarlane.Pandoc -e
-```
-
-For PDF output, also install [MiKTeX](https://miktex.org/):
-
-```powershell
-winget install --id MiKTeX.MiKTeX -e
+choco install pandoc -y
+choco install miktex -y
 ```
 
 #### System command: `build-resume` (recommended)
@@ -41,9 +40,15 @@ cd C:\path\to\folder
 build-resume
 ```
 
-That writes `resume.pdf` in the current folder (PDF only).
+Optional custom PDF name:
 
-See [system-command.md](system-command.md) for full setup and troubleshooting.
+```powershell
+build-resume -OutPdf "Jesse_Pinzon_Senior_AI_Engineer.pdf"
+```
+
+That writes a PDF in the current folder.
+
+See [system-command.md](system-command.md) and [SETUP.md](SETUP.md) for full setup and troubleshooting.
 
 Open a **new** terminal after install if the command is not found.
 

@@ -18,7 +18,14 @@ It does **not** create HTML.
 
 ## Prerequisites
 
-Install these once:
+Install these once. **Chocolatey is recommended** on Windows:
+
+```powershell
+choco install pandoc -y
+choco install miktex -y
+```
+
+Alternative (winget):
 
 ```powershell
 winget install --id JohnMacFarlane.Pandoc -e
@@ -74,6 +81,12 @@ Optional arguments:
 build-resume -Markdown resume.md -OutPdf resume.pdf
 ```
 
+Custom PDF file name example:
+
+```powershell
+build-resume -OutPdf "Jesse_Pinzon_Senior_AI_Engineer.pdf"
+```
+
 ## Update styles
 
 If you change the project style templates (`template.tex`, etc.), re-run the install script so the shared templates are refreshed:
@@ -112,3 +125,7 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\pandoc-resume"
 Then remove this folder from your user PATH if it is still listed:
 
 `%LOCALAPPDATA%\pandoc-resume\bin`
+
+## Related document
+
+For the full ChatGPT + local PDF workflow, see [SETUP.md](SETUP.md).

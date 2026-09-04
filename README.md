@@ -7,7 +7,7 @@ Create a professional ATS-friendly résumé from a single Markdown file (`resume
 For full local setup, ChatGPT project configuration, and PDF generation workflow, see:
 
 - **[SETUP.md](SETUP.md)** — complete setup and workflow guide
-- **[system-command.md](system-command.md)** — `build-resume` command reference
+- **[system-command.md](system-command.md)** — `build-resume` and `unzip-build-resume` command reference
 
 ## Usage
 
@@ -47,6 +47,14 @@ build-resume -OutPdf "Jesse_Pinzon_Senior_AI_Engineer.pdf"
 ```
 
 That writes a PDF in the current folder.
+
+If a folder contains zip files instead of an already-unzipped `resume.md`, run:
+
+```powershell
+unzip-build-resume
+```
+
+Each zip is extracted to a same-named folder, then `build-resume` runs inside it.
 
 See [system-command.md](system-command.md) and [SETUP.md](SETUP.md) for full setup and troubleshooting.
 

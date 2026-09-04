@@ -1,4 +1,4 @@
-# Install build-resume as a system command for the current user.
+# Install build-resume and unzip-build-resume as system commands for the current user.
 # Run once from the pandoc-resume project:
 #   powershell -ExecutionPolicy Bypass -File .\scripts\install-build-resume.ps1
 
@@ -14,6 +14,8 @@ New-Item -ItemType Directory -Force -Path $TemplateDir | Out-Null
 
 Copy-Item -Force (Join-Path $PSScriptRoot "build-resume.ps1") (Join-Path $BinDir "build-resume.ps1")
 Copy-Item -Force (Join-Path $PSScriptRoot "build-resume.cmd") (Join-Path $BinDir "build-resume.cmd")
+Copy-Item -Force (Join-Path $PSScriptRoot "unzip-build-resume.ps1") (Join-Path $BinDir "unzip-build-resume.ps1")
+Copy-Item -Force (Join-Path $PSScriptRoot "unzip-build-resume.cmd") (Join-Path $BinDir "unzip-build-resume.cmd")
 
 # Remove old command name if present
 Remove-Item -Force (Join-Path $BinDir "rebuild-resume.ps1") -ErrorAction SilentlyContinue
@@ -51,13 +53,17 @@ if ($env:PATH -notlike "*$BinDir*") {
 }
 
 Write-Host ""
-Write-Host "Installed build-resume."
-Write-Host "  Command   : build-resume"
+Write-Host "Installed resume commands."
+Write-Host "  Commands  : build-resume, unzip-build-resume"
 Write-Host "  Templates : $TemplateDir"
 Write-Host ""
-Write-Host "Usage (from any folder that has resume.md):"
+Write-Host "Single folder (has resume.md):"
 Write-Host "  cd C:\path\to\folder"
 Write-Host "  build-resume"
 Write-Host ""
-Write-Host "Open a NEW terminal if 'build-resume' is not recognized yet."
+Write-Host "Folder of zip files:"
+Write-Host "  cd C:\path\to\folder-of-zips"
+Write-Host "  unzip-build-resume"
+Write-Host ""
+Write-Host "Open a NEW terminal if a command is not recognized yet."
 Write-Host "See system-command.md for full setup instructions."
